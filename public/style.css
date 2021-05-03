@@ -1,3 +1,20 @@
-li.crossing {
-    text-decoration: line-through;
+.show__section {
+  background-color: #9b9b9b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.show__item {
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #d8d8d8;
+  margin: 30px 20px;
+  width: 50%;
+}
+
+.show__item {
+  width: 30%;
 }
