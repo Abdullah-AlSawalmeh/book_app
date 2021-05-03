@@ -78,6 +78,9 @@ server.post("/searches", (req, res) => {
 server.get("/searches/new", (req, res) => {
   res.render("./pages/searches/new");
 });
+server.get("/", (req, res) => {
+  res.render("./pages/index");
+});
 //
 //
 //
