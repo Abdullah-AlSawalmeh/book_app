@@ -12,17 +12,17 @@ server.use(express.urlencoded({ extended: true }));
 server.set("view engine", "ejs");
 server.use(express.static("./public"));
 
-// Constructors
+// Constructors🐟🐟🐟🐟🐟
 function Book(gData) {
   this.image =
-    this.addSInHttp(gData.volumeInfo.imageLinks?.thumbnail) ||
+    this.addSInHttp(gData.volumeInfo?.imageLinks?.thumbnail) ||
     "https://i.imgur.com/J5LVHEL.jpg";
-  this.title = gData.volumeInfo.title || "No data";
+  this.title = gData.volumeInfo?.title || "No data";
   this.author =
     gData.volumeInfo?.authors !== undefined
       ? gData.volumeInfo?.authors[0]
       : "No data";
-  this.description = gData.volumeInfo.description || "No data";
+  this.description = gData.volumeInfo?.description || "No data";
 }
 Book.prototype.addSInHttp = function (link) {
   if (/https/.test(link)) {
@@ -33,45 +33,50 @@ Book.prototype.addSInHttp = function (link) {
   }
 };
 
-//localhost:3001/searches/new
-server.get("/searches/new", (req, res) => {
-  // res.send('home route');
-  res.render("./pages/searches/new");
-});
+// Routes🐟🐟🐟🐟🐟
+/////////////////////////////////////////////////////////
 //localhost:3001/searches
 server.post("/searches", (req, res) => {
-  // res.send('home route');
   let keyword = req.body.keyword;
   let radio = req.body.choice;
-  // console.log(keyword, radio);
-
-  /////
-  //fetch the data that inside locaion.json file
-  // let allBooks = [];
   let gAPI =
     radio === "title"
       ? `https://www.googleapis.com/books/v1/volumes?q=+intitle:${keyword}`
       : `https://www.googleapis.com/books/v1/volumes?q=+inauthor:${keyword}`;
   superagent
-    .get(gAPI) //send a request locatioIQ API
+    .get(gAPI)
     .then((gData) => {
       let items = gData.body.items;
-      const gObj = items.map(function (element, i) {
-        return new Book(element);
-      });
-      res.render("./pages/searches/show", { booksArr: gObj });
-      //   res.render("./pages/searches/show", gObj);
-      //   res.send(items);
+      if (items === undefined) {
+        console.log("Error no data");
+        res.render("./pages/searches/show", {
+          error: "no Data for this query",
+          booksArr: undefined,
+        });
+      } else {
+        const gObj = items.map(function (element, i) {
+          return new Book(element);
+        });
+        console.log(gObj);
+        res.render("./pages/searches/show", {
+          booksArr: gObj,
+          error: undefined,
+        });
+        //   res.send(items);
+      }
     })
     .catch((error) => {
       console.log(error);
+      // res.render("./pages/searches/show", { error: error });
       res.send(error);
     });
   ///////
 });
-server.get("/searches/show", (req, res) => {
-  // res.send('home route');
-  res.render("./pages/index");
+
+/////////////////////////////////////////////////////////
+//localhost:3001/searches/new
+server.get("/searches/new", (req, res) => {
+  res.render("./pages/searches/new");
 });
 //
 //

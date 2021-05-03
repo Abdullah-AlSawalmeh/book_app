@@ -18,3 +18,12 @@
 .show__item {
   width: 30%;
 }
+.show__body {
+  background-color: #9b9b9b;
+}
+.show__error {
+  color: white;
+  font-size: 72px;
+  padding-top: 50px;
+  text-align: center;
+}

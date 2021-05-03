@@ -8,8 +8,13 @@
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
-  <body>
-    <% booksArr.forEach(element => { %>
+  <body class="show__body">
+    <% if (error !== undefined) { %>
+    <section class="show__error">
+      <p><%= error %></p>
+    </section>
+
+    <% }%> <% if (booksArr) { %> <% booksArr.forEach(element => { %>
     <section class="show__section">
       <div class="show__item">
         <img src="<%= element.image %>" />
@@ -19,5 +24,6 @@
       </div>
       <% }) %>
     </section>
+    <% } %>
   </body>
 </html>
