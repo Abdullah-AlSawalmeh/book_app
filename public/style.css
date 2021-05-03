@@ -1,3 +1,7 @@
+body {
+  background-color: #9b9b9b;
+}
+
 .show__section {
   background-color: #9b9b9b;
   display: flex;
@@ -15,15 +19,145 @@
   width: 50%;
 }
 
-.show__item {
-  width: 30%;
+.show__item img {
+  width: 25%;
+  max-height: 300px;
+  margin: 0px 0px 20px 0px;
 }
-.show__body {
-  background-color: #9b9b9b;
+.show__item h2 {
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  margin: 0px 0px 20px 0px;
+  text-shadow: 0 0 3px #030303, 0 0 5px #000000;
 }
+.show__item h3 {
+  font-size: 18px;
+  margin: 0px 0px 20px 0px;
+}
+.show__item p {
+  padding: 0px 20px;
+  text-align: justify;
+  margin: 0px 20px 20px 0px;
+}
+
 .show__error {
   color: white;
   font-size: 72px;
   padding-top: 50px;
   text-align: center;
+}
+.header {
+  /* padding: 20px 0px; */
+}
+.nav__1 {
+  display: flex;
+  justify-content: space-between;
+}
+.nav__1 {
+  padding: 30px;
+  background-color: black;
+}
+.nav__1 h1 {
+  color: white;
+}
+
+/* Dropdown Button */
+.icon {
+  width: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.icon span {
+  margin-bottom: 5px;
+  background-color: white;
+}
+.icon span:first-child {
+  height: 2px;
+  width: 100%;
+}
+.icon span:nth-child(2) {
+  height: 2px;
+  width: 60%;
+  transition: 0.3s;
+}
+.links:hover .icon span:nth-child(2) {
+  width: 100%;
+}
+.icon span:last-child {
+  height: 4px;
+  width: 100%;
+}
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  left: -130px;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.nav__2 {
+  padding: 30px;
+  background-color: #555555;
+  text-align: center;
+  color: white;
+}
+
+.new__form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+  padding: 30px;
+}
+
+.new__form .text__input {
+  /* width: 100%; */
+  padding: 10px 5px;
+  /* margin-bottom: 30px; */
+}
+
+.radio__label {
+  margin: 15px 0px;
+  /* width: 100%; */
+  padding: 10px 5px;
+  background-color: whitesmoke;
+}
+
+.new__form input[type="submit"] {
+  display: block;
+  margin: 15px 0px;
+  /* width: 100%; */
+  padding: 10px 5px;
+  color: azure;
+  background-color: black;
+  border: none;
 }

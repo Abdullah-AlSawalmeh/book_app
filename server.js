@@ -12,7 +12,7 @@ server.use(express.urlencoded({ extended: true }));
 server.set("view engine", "ejs");
 server.use(express.static("./public"));
 
-// Constructors🐟🐟🐟🐟🐟
+// Constructors🧠🧠🧠🧠🧠🧠🧠🧠🧠🧠🧠🧠🧠🧠
 function Book(gData) {
   this.image =
     this.addSInHttp(gData.volumeInfo?.imageLinks?.thumbnail) ||
@@ -33,7 +33,7 @@ Book.prototype.addSInHttp = function (link) {
   }
 };
 
-// Routes🐟🐟🐟🐟🐟
+// Routes 🧠🧠🧠🧠🧠🧠🧠🧠🧠🧠🧠🧠🧠🧠
 /////////////////////////////////////////////////////////
 //localhost:3001/searches
 server.post("/searches", (req, res) => {
@@ -50,7 +50,7 @@ server.post("/searches", (req, res) => {
       if (items === undefined) {
         console.log("Error no data");
         res.render("./pages/searches/show", {
-          error: "no Data for this query",
+          error: "No data for this query",
           booksArr: undefined,
         });
       } else {
