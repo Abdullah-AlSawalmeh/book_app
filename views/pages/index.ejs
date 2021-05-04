@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>HomePage</title>
+  </head>
+  <body class="show__body">
+    <%- include('./layouts/header') %>
+    <div class="nav__2"><p>book store</p></div>
+    <h2 class="welcome">Welcome to my book store</h2>
+    <h2 class="number__books">Number of books is: <%= allBooks.length %></h2>
+    <% allBooks.forEach(element => { %>
+    <section class="show__section">
+      <div class="show__item">
+        <img src="<%= element.image %>" />
+        <h2><%= element.title %></h2>
+        <h3><%= element.author %></h3>
+        <h3>ISBN: <%= element.isbn %></h3>
+
+        <a href="/books/<%=element.id %>"
+          ><button class="select__book">View details</button></a
+        >
+      </div>
+    </section>
+    <% }) %>
+  </body>
+</html>

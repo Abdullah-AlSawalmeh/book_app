@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/reset.css" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Books</title>
+  </head>
+  <body class="show__body">
+    <%- include('../layouts/header') %>
+    <div class="nav__2"><p>Search Results</p></div>
+
+    <% if (error !== undefined) { %>
+    <section class="show__error">
+      <p><%= error %></p>
+    </section>
+
+    <% }%> <% if (booksArr) { %>
+    <section class="show__section">
+      <% booksArr.forEach(element => { %>
+      <div class="show__item">
+        <img src="<%= element.image %>" />
+        <h2><%= element.title %></h2>
+        <h3><%= element.author %></h3>
+        <h3>ISBN: <%= element.isbn %></h3>
+        <form action="/books" method="post">
+          <input type="hidden" name="image" value="<%= element.image %>" />
+          <input type="hidden" name="author" value="<%= element.author %>" />
+          <input type="hidden" name="title" value="<%= element.title %>" />
+          <input type="hidden" name="isbn" value="<%= element.isbn %>" />
+          <input
+            type="hidden"
+            name="description"
+            value="<%= element.description %>"
+          />
+          <input class="select__book" type="submit" value="Select this book" />
+        </form>
+      </div>
+      <% }) %>
+    </section>
+    <% } %>
+  </body>
+</html>

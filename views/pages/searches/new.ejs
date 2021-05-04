@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/reset.css" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Book finder</title>
+  </head>
+  <body class="show__body">
+    <%- include('../layouts/header') %>
+    <div class="nav__2"><p>Search for books</p></div>
+    <form action="/searches" method="post" class="new__form">
+      <input
+        type="text"
+        placeholder="Search for a book"
+        name="keyword"
+        class="text__input"
+        required
+      />
+      <br />
+
+      <div class="radio__label">
+        <input
+          type="radio"
+          id="title"
+          name="choice"
+          value="title"
+          checked="checked"
+        />
+        <label for="title">Tilte</label><br />
+      </div>
+
+      <div class="radio__label">
+        <input type="radio" id="author" name="choice" value="author" />
+        <label for="author">Author</label><br />
+      </div>
+      <input type="submit" />
+    </form>
+  </body>
+</html>
