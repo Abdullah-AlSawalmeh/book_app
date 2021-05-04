@@ -6,28 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/reset.css" />
     <link rel="stylesheet" href="/style.css" />
-    <title>Document</title>
+    <title>Book finder</title>
   </head>
   <body class="show__body">
-    <section class="header">
-      <div class="nav">
-        <div class="nav__1">
-          <h1>Best Books</h1>
-          <div class="dropdown">
-            <span class="icon">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-            <div class="dropdown-content">
-              <a href="/">Home</a>
-              <a href="/searches/new">Search for books</a>
-            </div>
-          </div>
-        </div>
-        <div class="nav__2"><p>Search by tilte or Author name</p></div>
-      </div>
-    </section>
+    <%- include('../layouts/header') %>
+    <div class="nav__2"><p>Search for books</p></div>
     <form action="/searches" method="post" class="new__form">
       <input
         type="text"

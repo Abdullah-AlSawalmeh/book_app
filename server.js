@@ -25,6 +25,10 @@ function Book(gData) {
       ? gData.volumeInfo?.authors[0]
       : "No data";
   this.description = gData.volumeInfo?.description || "No data";
+  this.isbn =
+    gData.volumeInfo?.industryIdentifiers !== undefined
+      ? gData.volumeInfo?.industryIdentifiers[0]?.identifier
+      : "No data";
 }
 Book.prototype.addSInHttp = function (link) {
   if (/https/.test(link)) {
@@ -49,9 +53,8 @@ server.post("/searches", (req, res) => {
     .get(gAPI)
     .then((gData) => {
       let items = gData.body.items;
-      // console.log(items);
+      console.log(items);
       if (items === undefined) {
-        // console.log("Error no data");
         res.render("./pages/searches/show", {
           error: "No data for this query",
           booksArr: undefined,
@@ -61,6 +64,7 @@ server.post("/searches", (req, res) => {
           return new Book(element);
         });
         // console.log(gObj);
+        // res.send(items);
         res.render("./pages/searches/show", {
           booksArr: gObj,
           error: undefined,
@@ -98,9 +102,9 @@ server.get("/books/:id", (req, res) => {
 //localhost:3001/books 🧠🧠🧠
 server.post("/books", (req, res) => {
   console.log(req.body);
-  let { title, author, image_url, description } = req.body;
-  let SQL = `INSERT INTO books (title,author,image_url,description) VALUES ($1,$2,$3,$4) RETURNING *;`;
-  let safeValue = [title, author, image_url, description];
+  let { title, author, image, description, isbn } = req.body;
+  let SQL = `INSERT INTO books (title,author,image,description,isbn) VALUES ($1,$2,$3,$4,$5) RETURNING *;`;
+  let safeValue = [title, author, image, description, isbn];
   client
     .query(SQL, safeValue)
     .then((result) => {
@@ -125,30 +129,9 @@ server.get("/", (req, res) => {
       res.render("./pages/error", { error: err });
     });
 });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//localhost:3001/hello
-server.get("/hello", (req, res) => {
-  // res.send('home route');
-  res.render("./pages/index");
+server.get("*", (req, res) => {
+  // res.status(404).send('This route does not exist')
+  res.render("./pages/404page");
 });
 client.connect().then(() => {
   server.listen(PORT, () => console.log(`Listening on port: ${PORT}`));

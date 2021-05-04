@@ -1,7 +1,10 @@
 body {
   background-color: #9b9b9b;
 }
-
+a {
+  color: white;
+  text-decoration: none;
+}
 .show__section {
   background-color: #9b9b9b;
   display: flex;
@@ -17,6 +20,7 @@ body {
   background-color: #d8d8d8;
   margin: 30px 20px;
   width: 50%;
+  text-align: center;
 }
 
 .show__item img {
@@ -36,7 +40,7 @@ body {
   margin: 0px 0px 20px 0px;
 }
 .show__item p {
-  padding: 0px 20px;
+  /* padding: 0px 20px; */
   text-align: justify;
   margin: 0px 20px 20px 0px;
 }
@@ -53,13 +57,13 @@ body {
 .nav__1 {
   display: flex;
   justify-content: space-between;
-}
-.nav__1 {
   padding: 30px;
   background-color: black;
 }
+
 .nav__1 h1 {
   color: white;
+  font-size: 30px;
 }
 
 /* Dropdown Button */
@@ -129,6 +133,7 @@ body {
   background-color: #555555;
   text-align: center;
   color: white;
+  font-size: 26px;
 }
 
 .new__form {
@@ -152,14 +157,16 @@ body {
   background-color: whitesmoke;
 }
 
-.new__form input[type="submit"] {
+.new__form input[type="submit"],
+.select__book {
   display: block;
   margin: 15px 0px;
   /* width: 100%; */
-  padding: 10px 5px;
+  padding: 10px 20px;
   color: azure;
   background-color: black;
   border: none;
+  cursor: pointer;
 }
 
 .welcome {
@@ -190,4 +197,11 @@ body {
   color: white;
   font-weight: bold;
   text-decoration: none;
+}
+
+.desc {
+  display: flex;
+  padding: 50px 30px;
+  background-color: #f5f1f1;
+  text-align: center;
 }

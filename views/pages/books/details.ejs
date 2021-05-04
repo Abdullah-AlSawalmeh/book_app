@@ -1,9 +1,9 @@
 <section class="show__section">
   <div class="show__item">
-    <img src="<%= oneBook.image_url %>" />
+    <img src="<%= oneBook.image %>" />
     <h2><%= oneBook.title %></h2>
     <h3><%= oneBook.author %></h3>
-    <p><%= oneBook.isbn %></p>
-    <p><%= oneBook.description %></p>
+    <p class="desc"><%= oneBook.description %></p>
+    <p>ISBN: <%= oneBook.isbn %></p>
   </div>
 </section>
