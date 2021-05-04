@@ -40,7 +40,17 @@
         <img src="<%= element.image %>" />
         <h2><%= element.title %></h2>
         <h3><%= element.author %></h3>
-        <p><%= element.description %></p>
+        <form action="/books" method="post">
+          <input type="hidden" name="image_url" value="<%= element.image %>" />
+          <input type="hidden" name="author" value="<%= element.author %>" />
+          <input type="hidden" name="title" value="<%= element.title %>" />
+          <input
+            type="hidden"
+            name="description"
+            value="<%= element.description %>"
+          />
+          <input type="submit" value="Select this book" />
+        </form>
       </div>
       <% }) %>
     </section>

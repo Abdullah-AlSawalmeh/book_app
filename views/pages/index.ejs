@@ -9,25 +9,20 @@
     <title>Document</title>
   </head>
   <body class="show__body">
-    <section class="header">
-      <div class="nav">
-        <div class="nav__1">
-          <h1>Best Books</h1>
-          <div class="dropdown">
-            <span class="icon">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-            <div class="dropdown-content">
-              <a href="/">Home</a>
-              <a href="/searches/new">Search for books</a>
-            </div>
-          </div>
-        </div>
-        <div class="nav__2"><p>book store</p></div>
+    <%- include('./layouts/header') %>
+    <h2 class="welcome">Welcome to my book store</h2>
+    <h2 class="number__books">
+      Number of books is: <%= allBooks[allBooks.length -1].id %>
+    </h2>
+    <% allBooks.forEach(element => { %>
+    <section class="show__section">
+      <div class="show__item">
+        <img src="<%= element.image_url %>" />
+        <h2><%= element.title %></h2>
+        <h3><%= element.author %></h3>
+        <button><a href="/books/<%=element.id %>">View details</a></button>
       </div>
     </section>
-    <h2 class="welcome">Welcome to my book store</h2>
+    <% }) %>
   </body>
 </html>
