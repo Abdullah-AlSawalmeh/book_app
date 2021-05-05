@@ -158,7 +158,8 @@ a {
 }
 
 .new__form input[type="submit"],
-.select__book {
+.select__book,
+#updateBtn {
   display: block;
   margin: 15px 0px;
   /* width: 100%; */
@@ -204,4 +205,39 @@ a {
   padding: 50px 30px;
   background-color: #f5f1f1;
   text-align: center;
+}
+
+#updateBtn {
+  width: 50%;
+  margin: auto;
+}
+.update {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.update .updateForm {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+  /* padding: 30px; */
+}
+.update .updateForm input,
+.update .updateForm textarea {
+  margin: 10px 0px;
+  padding: 10px 30px;
+}
+.hide {
+  visibility: hidden;
+}
+
+.delete form {
+  display: flex;
+}
+.delete form input {
+  width: 50%;
+  margin: auto;
+  margin-bottom: 20px;
 }

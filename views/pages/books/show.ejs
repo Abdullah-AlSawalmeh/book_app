@@ -11,6 +11,17 @@
   <body class="show__body">
     <%- include('../layouts/header') %>
     <h2 class="home__Page"><a href="/">Back to home page</a></h2>
-    <%- include('../books/details') %>
+    <%- include('../books/details') %> <%- include('../books/edit') %>
+
+    <script>
+      const btnHandler = function () {
+        console.log("here");
+        let formSection = document.getElementById("updateForm");
+        formSection.classList.toggle("hide");
+      };
+      let btn = document.getElementById("updateBtn");
+
+      btn.addEventListener("click", btnHandler);
+    </script>
   </body>
 </html>
