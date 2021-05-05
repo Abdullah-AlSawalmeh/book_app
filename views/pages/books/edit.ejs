@@ -1,0 +1,25 @@
+<section class="delete">
+  <form action="/books/<%=oneBook.id%>?_method=delete" method="post">
+    <input type="submit" value="Delete Book" class="select__book" />
+  </form>
+</section>
+
+<section class="update">
+  <button id="updateBtn">Update</button>
+  <form
+    class="hide updateForm"
+    id="updateForm"
+    action="/books/<%=oneBook.id%>?_method=put"
+    method="post"
+  >
+    <input type="text" name="title" value=" <%= oneBook.title  %> " />
+    <input type="text" name="author" value="<%= oneBook.author  %>" />
+    <input type="text" name="isbn" value="<%= oneBook.isbn  %>" />
+    <input type="text" name="image" value="<%= oneBook.image  %>" />
+    <textarea name="description" cols="30" rows="10">
+    <%= oneBook.description  %></textarea
+    >
+
+    <input type="submit" value="Update Book" class="select__book" />
+  </form>
+</section>
