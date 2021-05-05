@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3030;
 const server = express();
 const client = new pg.Client({
   connectionString: process.env.DATABASE_URL,
-  // ssl: { rejectUnauthorized: false },
+  ssl: { rejectUnauthorized: false },
 });
 server.use(express.urlencoded({ extended: true }));
 server.set("view engine", "ejs");
